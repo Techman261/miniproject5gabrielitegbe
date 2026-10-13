@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 text-center">
+    <h1 class="display-5 fw-bold">Welcome to My Movie Watchlist</h1>
+    <p class="col-md-8 mx-auto fs-4">Keep track of the movies you want to watch. Register for an account to get started!</p>
+    {% if not session.user_id %}
+        <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">Sign Up</a>
+    {% else %}
+        <a href="{{ url_for('watchlist') }}" class="btn btn-success btn-lg">Go to My Watchlist</a>
+    {% endif %}
+</div>
+{% endblock %}
